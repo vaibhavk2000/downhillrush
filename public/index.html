@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Downhill Rush</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud" class="hidden">
+  <div class="hud-box"><b id="hSpeed">0</b><small>km/h</small></div>
+  <div class="hud-box"><b id="hTime">0.0</b><small>sec</small></div>
+  <div class="hud-box"><b id="hScore">0</b><small>trick pts</small></div>
+  <div class="hud-box"><b id="hDist">0</b><small>% done</small></div>
+</div>
+
+<section id="menu" class="panel">
+  <h1>Downhill Rush</h1>
+  <p class="lead">Race down the mountain, land your flips, and beat the leaderboard.</p>
+
+  <label for="name">Rider name</label>
+  <input id="name" maxlength="16" placeholder="Your name" autocomplete="off">
+
+  <h2>Pick a track</h2>
+  <div id="tracks" class="tracks"></div>
+  <p id="offline" class="note hidden">Server not reachable: you can still play, but scores will not be saved.</p>
+
+  <button id="startBtn" class="primary">Start race</button>
+
+  <h2>Top riders</h2>
+  <ol id="board" class="board"></ol>
+
+  <p class="keys">
+    <b>Up / W / Space</b> pedal &nbsp; <b>Down / S</b> brake &nbsp;
+    <b>Left / A</b> backflip &nbsp; <b>Right / D</b> frontflip &nbsp;
+    <b>R</b> restart &nbsp; <b>Esc</b> menu
+  </p>
+</section>
+
+<section id="result" class="panel hidden">
+  <h1 id="rTitle">Finish!</h1>
+  <table class="stats">
+    <tr><td>Time</td><td id="rTime"></td></tr>
+    <tr><td>Trick points</td><td id="rTricks"></td></tr>
+    <tr><td>Crashes</td><td id="rCrashes"></td></tr>
+    <tr><td>Total score</td><td id="rTotal"></td></tr>
+    <tr><td>Leaderboard rank</td><td id="rRank">-</td></tr>
+  </table>
+  <p id="rMsg" class="note"></p>
+  <div class="row">
+    <button id="againBtn" class="primary">Race again</button>
+    <button id="menuBtn">Menu</button>
+  </div>
+</section>
+
+<div id="touch" class="hidden">
+  <div class="tgroup">
+    <button data-k="left">&#8634;</button>
+    <button data-k="right">&#8635;</button>
+  </div>
+  <div class="tgroup">
+    <button data-k="brake">Brake</button>
+    <button data-k="pedal">Pedal</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
